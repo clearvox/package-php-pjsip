@@ -22,19 +22,18 @@ abstract class AbstractAuth implements TypeInterface
 
     protected $username;
 
+    protected $nonceLifetime;
+
+    protected $realm;
+
     public function __construct($name, $authType)
     {
         $this->name = $name;
     }
 
-    /**
-     * Return the TYPE as defined for PJSIP in Asterisk.
-     *
-     * @return string
-     */
-    public function getType()
+    public function getName()
     {
-        return 'auth';
+        return $this->name;
     }
 
     public function getAuthType()
@@ -51,5 +50,45 @@ abstract class AbstractAuth implements TypeInterface
     public function getUsername()
     {
         return $this->username;
+    }
+
+    /**
+     * @param int $lifetime
+     * @return $this
+     */
+    public function setNonceLifetime($lifetime)
+    {
+        $this->nonceLifetime = $lifetime;
+        return $this;
+    }
+
+    public function getNonceLifetime()
+    {
+        return $this->nonceLifetime;
+    }
+
+    /**
+     * @param string $realm
+     * @return $this
+     */
+    public function setRealm($realm)
+    {
+        $this->realm = $realm;
+        return $this;
+    }
+
+    public function getRealm()
+    {
+        return $this->realm;
+    }
+
+    /**
+     * Return the TYPE as defined for PJSIP in Asterisk.
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return 'auth';
     }
 }

@@ -1,24 +1,30 @@
 <?php
 namespace Clearvox\Asterisk\PJSIP\Auth;
 
-class UserPass extends AbstractAuth
+class Md5 extends AbstractAuth
 {
-    protected $password;
+    protected $md5Cred;
 
     public function __construct($name)
     {
-        parent::__construct($name, 'userpass');
+        parent::__construct($name, 'md5');
     }
 
-    public function setPassword($password)
+    public function hashAndSetMd5Cred($plainText)
     {
-        $this->password = $password;
+        $this->md5Cred = md5($plainText);
         return $this;
     }
 
-    public function getPassword()
+    public function setMd5Cred($md5)
     {
-        return $this->password;
+        $this->md5Cred = $md5;
+        return $this;
+    }
+
+    public function getMd5Cred()
+    {
+        return $this->md5Cred;
     }
 
     /**
@@ -29,7 +35,7 @@ class UserPass extends AbstractAuth
         return array(
             'auth_type'      => $this->authType,
             'nonce_lifetime' => $this->nonceLifetime,
-            'password'       => $this->password,
+            'md5_cred'       => $this->md5Cred,
             'username'       => $this->username,
             'realm'          => $this->realm,
         );
