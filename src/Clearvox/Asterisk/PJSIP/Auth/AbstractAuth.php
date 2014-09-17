@@ -16,37 +16,74 @@ use Clearvox\Asterisk\PJSIP\TypeInterface;
  */
 abstract class AbstractAuth implements TypeInterface
 {
+    /**
+     * @var string
+     */
     protected $name;
 
+    /**
+     * @var string
+     */
     protected $authType;
 
+    /**
+     * @var string
+     */
     protected $username;
 
+    /**
+     * @var int
+     */
     protected $nonceLifetime;
 
+    /**
+     * @var string
+     */
     protected $realm;
 
     public function __construct($name, $authType)
     {
-        $this->name = $name;
+        $this->name     = $name;
+        $this->authType = $authType;
     }
 
+    /**
+     * Get the Name(id) nfor this Authorization block
+     *
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * Get the set authorization type.
+     *
+     * @return string
+     */
     public function getAuthType()
     {
         return $this->authType;
     }
 
+    /**
+     * Set the Username for this authorization block
+     *
+     * @param string $username
+     * @return $this
+     */
     public function setUsername($username)
     {
         $this->username = $username;
         return $this;
     }
 
+    /**
+     * Return the Username for this Block.
+     *
+     * @return string
+     */
     public function getUsername()
     {
         return $this->username;

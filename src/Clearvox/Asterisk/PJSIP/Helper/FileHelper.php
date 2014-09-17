@@ -9,7 +9,7 @@ class FileHelper
     {
         $content  = "[{$pjsipType->getName()}]\n";
         $content .= "type={$pjsipType->getType()}\n";
-        
+
         foreach ($pjsipType->toArray() as $field => $value) {
             $content .= "{$field}={$value}\n";
         }

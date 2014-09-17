@@ -52,6 +52,11 @@ class AOR implements TypeInterface
     protected $minimumExpiration;
 
     /**
+     * @var int
+     */
+    protected $maximumExpiration;
+
+    /**
      * @var bool
      */
     protected $removeExisting;
@@ -65,6 +70,16 @@ class AOR implements TypeInterface
      * @var
      */
     protected $authenticateQualify;
+
+    /**
+     * @var string
+     */
+    protected $outboundProxy;
+
+    /**
+     * @var string
+     */
+    protected $supportPath;
 
     public function __construct($name)
     {
@@ -113,6 +128,168 @@ class AOR implements TypeInterface
     }
 
     /**
+     * @param mixed $authenticateQualify
+     * @return AOR
+     */
+    public function setAuthenticateQualify($authenticateQualify)
+    {
+        $this->authenticateQualify = $authenticateQualify;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthenticateQualify()
+    {
+        return $this->authenticateQualify;
+    }
+
+    /**
+     * @param int $defaultExpiration
+     * @return AOR
+     */
+    public function setDefaultExpiration($defaultExpiration)
+    {
+        $this->defaultExpiration = $defaultExpiration;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDefaultExpiration()
+    {
+        return $this->defaultExpiration;
+    }
+
+    /**
+     * @param string $mailboxes
+     * @return AOR
+     */
+    public function setMailboxes($mailboxes)
+    {
+        $this->mailboxes = $mailboxes;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMailboxes()
+    {
+        return $this->mailboxes;
+    }
+
+    /**
+     * @param int $maximumExpiration
+     * @return AOR
+     */
+    public function setMaximumExpiration($maximumExpiration)
+    {
+        $this->maximumExpiration = $maximumExpiration;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaximumExpiration()
+    {
+        return $this->maximumExpiration;
+    }
+
+    /**
+     * @param int $minimumExpiration
+     * @return AOR
+     */
+    public function setMinimumExpiration($minimumExpiration)
+    {
+        $this->minimumExpiration = $minimumExpiration;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMinimumExpiration()
+    {
+        return $this->minimumExpiration;
+    }
+
+    /**
+     * @param string $outboundProxy
+     * @return AOR
+     */
+    public function setOutboundProxy($outboundProxy)
+    {
+        $this->outboundProxy = $outboundProxy;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOutboundProxy()
+    {
+        return $this->outboundProxy;
+    }
+
+    /**
+     * @param int $qualifyFrequency
+     * @return AOR
+     */
+    public function setQualifyFrequency($qualifyFrequency)
+    {
+        $this->qualifyFrequency = $qualifyFrequency;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQualifyFrequency()
+    {
+        return $this->qualifyFrequency;
+    }
+
+    /**
+     * @param boolean $removeExisting
+     * @return AOR
+     */
+    public function setRemoveExisting($removeExisting)
+    {
+        $this->removeExisting = $removeExisting;
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getRemoveExisting()
+    {
+        return $this->removeExisting;
+    }
+
+    /**
+     * @param string $supportPath
+     * @return AOR
+     */
+    public function setSupportPath($supportPath)
+    {
+        $this->supportPath = $supportPath;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSupportPath()
+    {
+        return $this->supportPath;
+    }
+
+    /**
      * Return the TYPE as defined for PJSIP in Asterisk.
      *
      * @return string
@@ -120,5 +297,34 @@ class AOR implements TypeInterface
     public function getType()
     {
         return 'aor';
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'name'                 => $this->name,
+            'contact'              => $this->contact,
+            'default_expiration'   => $this->defaultExpiration,
+            'mailboxes'            => $this->mailboxes,
+            'max_contacts'         => $this->maxContacts,
+            'minimum_expiration'   => $this->minimumExpiration,
+            'remove_existing'      => $this->removeExisting,
+            'qualify_frequency'    => $this->qualifyFrequency,
+            'authenticate_qualify' => $this->authenticateQualify,
+            'maximum_expiration'   => $this->maximumExpiration,
+            'outbound_proxy'       => $this->outboundProxy,
+            'support_path'         => $this->supportPath
+        );
     }
 }
