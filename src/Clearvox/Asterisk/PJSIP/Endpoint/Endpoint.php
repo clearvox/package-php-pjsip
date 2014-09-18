@@ -8,7 +8,7 @@ class Endpoint implements TypeInterface
     /**
      * @var string
      */
-    protected $name;
+    protected $id;
 
     /**
      * @var string
@@ -484,17 +484,17 @@ class Endpoint implements TypeInterface
      */
     protected $accountCode;
 
-    public function __construct($name)
+    public function __construct($id)
     {
-        $this->name = $name;
+        $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getID()
     {
-        return $this->name;
+        return $this->id;
     }
 
     /**
@@ -2043,7 +2043,7 @@ class Endpoint implements TypeInterface
     public function toArray()
     {
         return array(
-            'id' => $this->name,
+            'id' => $this->id,
             'transport' => $this->transport,
             'aors' => $this->aors,
             'auth' => $this->auth,

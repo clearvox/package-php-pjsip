@@ -19,7 +19,7 @@ abstract class AbstractAuth implements TypeInterface
     /**
      * @var string
      */
-    protected $name;
+    protected $id;
 
     /**
      * @var string
@@ -41,9 +41,9 @@ abstract class AbstractAuth implements TypeInterface
      */
     protected $realm;
 
-    public function __construct($name, $authType)
+    public function __construct($id, $authType)
     {
-        $this->name     = $name;
+        $this->id       = $id;
         $this->authType = $authType;
     }
 
@@ -52,9 +52,9 @@ abstract class AbstractAuth implements TypeInterface
      *
      * @return string
      */
-    public function getName()
+    public function getID()
     {
-        return $this->name;
+        return $this->id;
     }
 
     /**

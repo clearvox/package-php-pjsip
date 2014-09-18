@@ -5,9 +5,9 @@ class UserPass extends AbstractAuth
 {
     protected $password;
 
-    public function __construct($name)
+    public function __construct($id)
     {
-        parent::__construct($name, 'userpass');
+        parent::__construct($id, 'userpass');
     }
 
     public function setPassword($password)
@@ -27,7 +27,7 @@ class UserPass extends AbstractAuth
     public function toArray()
     {
         return array(
-            'name'           => $this->name,
+            'id'             => $this->id,
             'auth_type'      => $this->authType,
             'nonce_lifetime' => $this->nonceLifetime,
             'password'       => $this->password,

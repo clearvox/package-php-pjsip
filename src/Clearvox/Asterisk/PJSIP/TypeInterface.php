@@ -6,7 +6,7 @@ interface TypeInterface
     /**
      * @return string
      */
-    public function getName();
+    public function getID();
 
     /**
      * Return the TYPE as defined for PJSIP in Asterisk.

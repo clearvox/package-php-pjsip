@@ -5,9 +5,9 @@ class Md5 extends AbstractAuth
 {
     protected $md5Cred;
 
-    public function __construct($name)
+    public function __construct($id)
     {
-        parent::__construct($name, 'md5');
+        parent::__construct($id, 'md5');
     }
 
     public function hashAndSetMd5Cred($plainText)
@@ -33,7 +33,7 @@ class Md5 extends AbstractAuth
     public function toArray()
     {
         return array(
-            'name'           => $this->name,
+            'id'             => $this->id,
             'auth_type'      => $this->authType,
             'nonce_lifetime' => $this->nonceLifetime,
             'md5_cred'       => $this->md5Cred,

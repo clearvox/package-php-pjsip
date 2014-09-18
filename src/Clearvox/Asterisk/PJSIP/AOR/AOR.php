@@ -24,7 +24,7 @@ class AOR implements TypeInterface
     /**
      * @var string
      */
-    protected $name;
+    protected $id;
 
     /**
      * @var int
@@ -302,9 +302,9 @@ class AOR implements TypeInterface
     /**
      * @return string
      */
-    public function getName()
+    public function getID()
     {
-        return $this->name;
+        return $this->id;
     }
 
     /**
@@ -313,7 +313,7 @@ class AOR implements TypeInterface
     public function toArray()
     {
         return array(
-            'name'                 => $this->name,
+            'id'                   => $this->id,
             'contact'              => $this->contact,
             'default_expiration'   => $this->defaultExpiration,
             'mailboxes'            => $this->mailboxes,
