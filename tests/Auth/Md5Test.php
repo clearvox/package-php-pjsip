@@ -35,6 +35,7 @@ class Md5Test extends PHPUnit_Framework_TestCase
             ->setNonceLifetime(50);
 
         $expected = array(
+            'name'      => '7000',
             'auth_type' => 'md5',
             'nonce_lifetime' => 50,
             'md5_cred' => md5('password'),

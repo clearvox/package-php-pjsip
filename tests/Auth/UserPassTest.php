@@ -29,6 +29,7 @@ class UserPassTest extends PHPUnit_Framework_TestCase
             ->setNonceLifetime(50);
 
         $expected = array(
+            'name' => '8000',
             'auth_type' => 'userpass',
             'nonce_lifetime' => 50,
             'password' => 'testing',

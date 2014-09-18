@@ -33,6 +33,7 @@ class Md5 extends AbstractAuth
     public function toArray()
     {
         return array(
+            'name'           => $this->name,
             'auth_type'      => $this->authType,
             'nonce_lifetime' => $this->nonceLifetime,
             'md5_cred'       => $this->md5Cred,

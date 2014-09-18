@@ -27,6 +27,7 @@ class UserPass extends AbstractAuth
     public function toArray()
     {
         return array(
+            'name'           => $this->name,
             'auth_type'      => $this->authType,
             'nonce_lifetime' => $this->nonceLifetime,
             'password'       => $this->password,
