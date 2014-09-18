@@ -117,7 +117,7 @@ class Endpoint implements TypeInterface
     /**
      * @var string
      */
-    protected $outbountAuth;
+    protected $outboundAuth;
 
     /**
      * @var string
@@ -1437,18 +1437,18 @@ class Endpoint implements TypeInterface
      * @param string $outbountAuth
      * @return Endpoint
      */
-    public function setOutbountAuth($outbountAuth)
+    public function setOutboundAuth($outboundAuth)
     {
-        $this->outbountAuth = $outbountAuth;
+        $this->outboundAuth = $outboundAuth;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getOutbountAuth()
+    public function getOutboundAuth()
     {
-        return $this->outbountAuth;
+        return $this->outboundAuth;
     }
 
     /**
@@ -2062,7 +2062,7 @@ class Endpoint implements TypeInterface
             'identify_by' => $this->identifyBy,
             'mailboxes' => $this->mailboxes,
             'moh_suggest' => $this->mohSuggest,
-            'outbound_auth' => $this->outbountAuth,
+            'outbound_auth' => $this->outboundAuth,
             'outbound_proxy' => $this->outboundProxy,
             'rewrite_contact' => $this->rewriteContact,
             'rtp_ipv6' => $this->rtpIpv6,
