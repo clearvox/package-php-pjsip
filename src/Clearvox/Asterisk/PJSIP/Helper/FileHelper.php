@@ -7,10 +7,13 @@ class FileHelper
 {
     public function asString(TypeInterface $pjsipType)
     {
-        $content  = "[{$pjsipType->getName()}]\n";
+        $content  = "[{$pjsipType->getID()}]\n";
         $content .= "type={$pjsipType->getType()}\n";
 
-        foreach ($pjsipType->toArray() as $field => $value) {
+        $pjsipValues = $pjsipType->toArray();
+        unset($pjsipValues['id']);
+
+        foreach ($pjsipValues as $field => $value) {
             $content .= "{$field}={$value}\n";
         }
         $content .= "\n";
