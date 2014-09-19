@@ -14,7 +14,9 @@ class FileHelper
         unset($pjsipValues['id']);
 
         foreach ($pjsipValues as $field => $value) {
-            $content .= "{$field}={$value}\n";
+            if(!is_null($value)) {
+                $content .= "{$field}={$value}\n";
+            }
         }
         $content .= "\n";
 
