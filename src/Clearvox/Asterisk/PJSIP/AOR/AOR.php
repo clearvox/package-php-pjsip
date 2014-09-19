@@ -81,9 +81,9 @@ class AOR implements TypeInterface
      */
     protected $supportPath;
 
-    public function __construct($name)
+    public function __construct($id)
     {
-        $this->name = $name;
+        $this->id = $id;
     }
 
     /**
