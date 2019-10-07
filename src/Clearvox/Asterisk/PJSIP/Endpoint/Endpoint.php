@@ -484,6 +484,11 @@ class Endpoint implements TypeInterface
      */
     protected $accountCode;
 
+    /**
+     * @var string
+     */
+    protected $subscribeContext;
+
     public function __construct($id)
     {
         $this->id = $id;
@@ -1740,6 +1745,25 @@ class Endpoint implements TypeInterface
     }
 
     /**
+     * @param $subscribeContext
+     *
+     * @return $this
+     */
+    public function setSubscribeContext($subscribeContext)
+    {
+        $this->subscribeContext = $subscribeContext;
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function getSubscribeContext()
+    {
+        return $this->subscribeContext;
+    }
+
+    /**
      * @param string $t38Udptl
      * @return Endpoint
      */
@@ -2127,7 +2151,8 @@ class Endpoint implements TypeInterface
             'message_context' => $this->messageContext,
             'force_avp' => $this->forceAvp,
             'media_use_received_transport' => $this->mediaUserReceivedTransport,
-            'accountcode' => $this->accountCode
+            'accountcode' => $this->accountCode,
+            'subscribe_context' => $this->subscribeContext,
         );
     }
 }
