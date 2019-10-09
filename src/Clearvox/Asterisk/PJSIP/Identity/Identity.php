@@ -4,22 +4,6 @@ namespace Clearvox\Asterisk\PJSIP\Identity;
 
 use Clearvox\Asterisk\PJSIP\TypeInterface;
 
-/**
- * A primary feature of AOR objects (Address of Record) is to tell Asterisk where an endpoint can be contacted.
- * Without an associated AOR section, an endpoint cannot be contacted. AOR objects also store associations to
- * mailboxes for MWI requests and other data that might relate to the whole group of contacts such as expiration
- * and qualify settings.
- *
- * When Asterisk receives an inbound registration, it'll look to match against available AORs.
- * Registrations: The name of the AOR section must match the user portion of the SIP URI in the
- * "To:" header of the inbound SIP registration. That will usually be the "user name" set in your hard or soft
- * phones configuration.
- *
- * @category Clearvox
- * @package
- * @subpackage
- * @author   Leon Rowland <leon@rowland.nl>
- */
 class Identity implements TypeInterface
 {
     /**
