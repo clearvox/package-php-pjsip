@@ -1,10 +1,10 @@
 <?php
 
-namespace Clearvox\Asterisk\PJSIP\Identity;
+namespace Clearvox\Asterisk\PJSIP\Identify;
 
 use Clearvox\Asterisk\PJSIP\TypeInterface;
 
-class Identity implements TypeInterface
+class Identify implements TypeInterface
 {
     /**
      * @var string
