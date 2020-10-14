@@ -251,7 +251,7 @@ class Registration implements TypeInterface
     }
 
     /**
-     * @param int $retryInterval
+     * @param int $fatalRetryInterval
      * @return Registration
      */
     public function setFatalRetryInterval($fatalRetryInterval)
