@@ -53,6 +53,11 @@ class Registration implements TypeInterface
     /**
      * @var int
      */
+    protected $fatalRetryInterval;
+
+    /**
+     * @var int
+     */
     protected $forbiddenRetryInterval;
 
     /**
@@ -246,6 +251,24 @@ class Registration implements TypeInterface
     }
 
     /**
+     * @param int $fatalRetryInterval
+     * @return Registration
+     */
+    public function setFatalRetryInterval($fatalRetryInterval)
+    {
+        $this->fatalRetryInterval = $fatalRetryInterval;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFatalRetryInterval()
+    {
+        return $this->fatalRetryInterval;
+    }
+
+    /**
      * @param string $serverUri
      * @return Registration
      */
@@ -324,6 +347,7 @@ class Registration implements TypeInterface
             'outbound_auth'            => $this->outboundAuth,
             'outbound_proxy'           => $this->outboundProxy,
             'retry_interval'           => $this->retryInterval,
+            'fatal_retry_interval'     => $this->fatalRetryInterval,
             'forbidden_retry_interval' => $this->forbiddenRetryInterval,
             'server_uri'               => $this->serverUri,
             'transport'                => $this->transport,
