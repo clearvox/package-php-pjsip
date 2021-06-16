@@ -489,6 +489,8 @@ class Endpoint implements TypeInterface
      */
     protected $subscribeContext;
 
+    private $allowOverlap = 'yes';
+
     public function __construct($id)
     {
         $this->id = $id;
@@ -2061,6 +2063,17 @@ class Endpoint implements TypeInterface
         return 'endpoint';
     }
 
+    public function setAllowOverlap(string $allowOverlap): Endpoint
+    {
+        $this->allowOverlap = $allowOverlap;
+        return $this;
+    }
+
+    public function getAllowOverlap(): string
+    {
+        return $this->allowOverlap;
+    }
+
     /**
      * @return array
      */
@@ -2153,6 +2166,7 @@ class Endpoint implements TypeInterface
             'media_use_received_transport' => $this->mediaUserReceivedTransport,
             'accountcode' => $this->accountCode,
             'subscribe_context' => $this->subscribeContext,
+            'allow_overlap' => $this->allowOverlap,
         );
     }
 }
