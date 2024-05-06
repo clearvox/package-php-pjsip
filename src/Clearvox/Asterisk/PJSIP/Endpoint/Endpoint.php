@@ -489,6 +489,16 @@ class Endpoint implements TypeInterface
      */
     protected $subscribeContext;
 
+    /**
+     * @var string
+     */
+    protected $rtcpMux;
+
+    /**
+     * @var string
+     */
+    protected $webrtc;
+
     private $allowOverlap = 'yes';
 
     public function __construct($id)
@@ -1758,7 +1768,7 @@ class Endpoint implements TypeInterface
     }
 
     /**
-     * @return $this
+     * @return string
      */
     public function getSubscribeContext()
     {
@@ -2074,6 +2084,28 @@ class Endpoint implements TypeInterface
         return $this->allowOverlap;
     }
 
+    public function setRTCPMux(string $rtcpMux): Endpoint
+    {
+        $this->rtcpMux = $rtcpMux;
+        return $this;
+    }
+
+    public function getRTCPMux(): string
+    {
+        return $this->rtcpMux;
+    }
+
+    public function setWebRTC(string $webrtc): Endpoint
+    {
+        $this->webrtc = $webrtc;
+        return $this;
+    }
+
+    public function getWebRTC(): string
+    {
+        return $this->webrtc;
+    }
+
     /**
      * @return array
      */
@@ -2167,6 +2199,8 @@ class Endpoint implements TypeInterface
             'accountcode' => $this->accountCode,
             'subscribe_context' => $this->subscribeContext,
             'allow_overlap' => $this->allowOverlap,
+            'rtcp_mux' => $this->rtcpMux,
+            'webrtc' => $this->webrtc,
         );
     }
 }
