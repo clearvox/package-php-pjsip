@@ -259,7 +259,10 @@ class AOR implements TypeInterface
     }
 
     /**
-     * @param float $qualifyTimeout
+     * Sets the maximum time, in seconds, that Asterisk will wait for a response
+     * to a qualify (OPTIONS) request before considering the contact unreachable.
+     *
+     * @param float $qualifyTimeout Maximum qualify wait time in seconds before marking the contact as unavailable.
      * @return AOR
      */
     public function setQualifyTimeout($qualifyTimeout)
