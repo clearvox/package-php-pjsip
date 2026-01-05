@@ -499,6 +499,16 @@ class Endpoint implements TypeInterface
      */
     protected $webrtc;
 
+    /**
+     * @var int
+     */
+    protected $incomingCallLimit;
+
+    /**
+     * @var int
+     */
+    protected $outgoingCallLimit;
+
     private $allowOverlap = 'yes';
 
     public function __construct($id)
@@ -2106,6 +2116,34 @@ class Endpoint implements TypeInterface
         return $this->webrtc;
     }
 
+    public function setIncomingCallLimit(int $incomingCallLimit): Endpoint
+    {
+        $this->incomingCallLimit = $incomingCallLimit;
+        return $this;
+    }
+
+    public function setOutgoingCallLimit(int $outgoingCallLimit): Endpoint
+    {
+        $this->outgoingCallLimit = $outgoingCallLimit;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIncomingCallLimit(): int
+    {
+        return $this->incomingCallLimit;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOutgoingCallLimit(): int
+    {
+        return $this->outgoingCallLimit;
+    }
+
     /**
      * @return array
      */
@@ -2201,6 +2239,8 @@ class Endpoint implements TypeInterface
             'allow_overlap' => $this->allowOverlap,
             'rtcp_mux' => $this->rtcpMux,
             'webrtc' => $this->webrtc,
+            'incoming_call_limit' => $this->incomingCallLimit,
+            'outgoing_call_limit' => $this->outgoingCallLimit,
         );
     }
 }
