@@ -21,7 +21,7 @@ class AORTest extends PHPUnit_Framework_TestCase
             ->setMaxContacts(5);
 
         $expected = array(
-            'name'                 => '6001',
+            'id'                   => '6001',
             'contact'              => 'sip:192.168.1.1:5060',
             'default_expiration'   => null,
             'mailboxes'            => null,
@@ -30,6 +30,7 @@ class AORTest extends PHPUnit_Framework_TestCase
             'remove_existing'      => null,
             'qualify_frequency'    => null,
             'authenticate_qualify' => null,
+            'qualify_timeout'      => null,
             'maximum_expiration'   => null,
             'outbound_proxy'       => null,
             'support_path'         => null

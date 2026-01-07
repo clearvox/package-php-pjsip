@@ -67,6 +67,11 @@ class AOR implements TypeInterface
     protected $qualifyFrequency;
 
     /**
+     * @var float
+     */
+    protected $qualifyTimeout;
+
+    /**
      * @var
      */
     protected $authenticateQualify;
@@ -254,6 +259,27 @@ class AOR implements TypeInterface
     }
 
     /**
+     * Sets the maximum time, in seconds, that Asterisk will wait for a response
+     * to a qualify (OPTIONS) request before considering the contact unreachable.
+     *
+     * @param float $qualifyTimeout Maximum qualify wait time in seconds before marking the contact as unavailable.
+     * @return AOR
+     */
+    public function setQualifyTimeout($qualifyTimeout)
+    {
+        $this->qualifyTimeout = $qualifyTimeout;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getQualifyTimeout()
+    {
+        return $this->qualifyTimeout;
+    }
+
+    /**
      * @param boolean $removeExisting
      * @return AOR
      */
@@ -322,6 +348,7 @@ class AOR implements TypeInterface
             'remove_existing'      => $this->removeExisting,
             'qualify_frequency'    => $this->qualifyFrequency,
             'authenticate_qualify' => $this->authenticateQualify,
+            'qualify_timeout'      => $this->qualifyTimeout,
             'maximum_expiration'   => $this->maximumExpiration,
             'outbound_proxy'       => $this->outboundProxy,
             'support_path'         => $this->supportPath
